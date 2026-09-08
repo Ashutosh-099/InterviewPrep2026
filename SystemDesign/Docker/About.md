@@ -55,3 +55,28 @@ docker run hello-world
 - Any library or server inside that room listening for visitor at door number, but because the room is sealed, nobody from outside can reach it.
 
 - To bind a port to the library container door, we can use ```-p <HOST_PORT>:<CONTAINER_PORT>``` command.
+
+- To run any container in background, we can use "**-d**" flag, which means **Detached mode**.
+  Example: ``` docker run -d -p 8080:80 nginx ```
+  - **-p** stands for port binding
+  - **-d** stands for detached mode, container run in background
+
+  ### Nginx:
+  - It is webserver that is famous for being able to handle tens of thousands of request at the exact same time without breaking a sweat or using much computer memory.
+
+- We can choose any HOST Port to connect with container door.
+- **Why 80 for nginx?** Port 80 isn't an Nginx, it is global internet rule.
+- 80: Standard unencrypted web pages(HTTP).
+- 443: Secure web pages (HTTPS).
+- 3306: MySQL Databases.
+- 6379: Redis
+
+- Every piece of software has it's own standard "door" based on specific job.
+
+## Docker v/s Virtual Machine:
+- Docker & VM achieve a similar goal(keeping apps seperated & safe) but they do it in a completely different way. Docker is much lighter than Virtual machine.
+- Virtual machine are like building seperate houses. VM installs a completely brand new massive operating system for every single app you want to run. It is heavy takes up to ton of hard drive space, requires a lot of computer memory.
+- Docker containers are like opening shop in a mall. Docker uses your computer's existing operating system. It doesn't install new OS for every app. It just puts up secure invisible "walls" around your app so it think it's alone.
+
+<img width="787" height="817" alt="image" src="https://github.com/user-attachments/assets/a9a26947-5f1e-406c-a6a5-b1b6c238d5c3" />
+- In our system, these is how operating system layers divided. Difference b/w Docker and VM is in these layers, Docker uses the same Host OS kernel & Virtualize application layer. But VM virtualize both OS kernel & Application layer.

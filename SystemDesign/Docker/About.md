@@ -79,4 +79,5 @@ docker run hello-world
 - Docker containers are like opening shop in a mall. Docker uses your computer's existing operating system. It doesn't install new OS for every app. It just puts up secure invisible "walls" around your app so it think it's alone.
 
 <img width="787" height="817" alt="image" src="https://github.com/user-attachments/assets/a9a26947-5f1e-406c-a6a5-b1b6c238d5c3" />
+
 - In our system, these is how operating system layers divided. Difference b/w Docker and VM is in these layers, Docker uses the same Host OS kernel & Virtualize application layer. But VM virtualize both OS kernel & Application layer.

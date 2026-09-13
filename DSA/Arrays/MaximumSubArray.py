@@ -6,14 +6,26 @@ class Solution:
         if len(nums) == 1:
             return nums[0]
 
-        sumArray = float('-inf')
-        curr = 0
+        maxRes = float('-inf')
+        startIndex = 0
+        endIndex = -1
+        count = 0
 
         for i in range(len(nums)):
-            curr += nums[i]
-            sumArray = max(sumArray, curr)
+            count += nums[i]
+            if count > maxRes :
+                maxRes = count
+                endIndex = i
 
-            if curr < 0:
-                curr = 0
+            if count < 0:
+                count = 0
+                startIndex = i
+        print(f"Start Index: {startIndex + 1}, End Index: {endIndex}")
+        return maxRes
+    
 
-        return sumArray
+# Example usage:
+if __name__ == "__main__":
+    solution = Solution()
+    nums = [-2,1,-3,4,-1,2,1,-5,4]
+    print(solution.maxSubArray(nums))  # Output: 6, Start Index: 3, End Index: 6
